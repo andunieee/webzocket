@@ -8,7 +8,7 @@ test "test connection" {
     var client = wz.client.init(allocator);
     defer client.deinit();
 
-    var conn = try client.connect("wss://ws.ifelse.io");
+    var conn = try client.connect("ws://127.0.0.1:8080");
     defer conn.deinit();
 
     var thread1 = try std.Thread.spawn(.{ .allocator = allocator }, read, .{&conn});
